@@ -1,7 +1,7 @@
 {
   "name": "hypercast",
-  "version": "1.0.0",
-  "description": "p2p broadcasting for dat:// enabled web browsers",
+  "version": "0.8.0",
+  "description": "p2p broadcasting for hyper:// enabled web browsers",
   "main": "app.js",
   "scripts": {
     "start": "electron app.js",
