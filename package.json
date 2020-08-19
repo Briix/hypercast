@@ -2,9 +2,10 @@
   "name": "hypercast",
   "version": "1.0.0",
   "description": "p2p broadcasting for dat:// enabled web browsers",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "electron app.js"
+    "start": "electron app.js",
+    "package:mac": "electron-packager . --overwrite --out=dist --platform=darwin --app-version=${npm_package_version} && cd dist/hypercast-darwin-x64 && zip -ryXq9 ../hypercast-macOS-${npm_package_version}.zip hypercast.app"
   },
   "author": "Louis Center (@louiscenter)",
   "license": "MIT",
@@ -13,7 +14,8 @@
     "url": "https://github.com/louiscenter/hypercast"
   },
   "devDependencies": {
-    "electron": "^9.2.0"
+    "electron": "^9.2.0",
+    "electron-packager": "^15.0.0"
   },
   "dependencies": {
     "@hyperswarm/replicator": "^1.8.0",
@@ -25,7 +27,6 @@
     "media-recorder-stream": "2.1.1",
     "on-load": "^3.3.4",
     "pump": "^1.0.2",
-    "sodium-native": "^3.2.0",
     "webm-cluster-stream": "^1.0.0"
   }
 }
