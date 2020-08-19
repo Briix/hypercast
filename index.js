@@ -71,7 +71,11 @@ app.use(function (state, emitter) {
               chromeMediaSourceId: state.settings.videoDevice
             }
           }
-      : state.settings.videoDevice
+      : typeof state.settings.videoDevice === 'boolean'
+        ? state.settings.videoDevice
+        : {
+            deviceId: state.settings.videoDevice
+          }
     })
       .then(function(stream) {
         var elPreview = document.getElementById('preview')
