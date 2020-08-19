@@ -42,7 +42,7 @@ function home (state, emit) {
           <div></div>
           <div id="share">
             ${state.broadcast.key
-              ? input({value: `dat://${state.broadcast.key}`})
+              ? input({value: `hyper://${state.broadcast.key}`})
               : null
             }
           </div>
