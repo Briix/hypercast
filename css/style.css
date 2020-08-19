@@ -18,6 +18,20 @@ button {
   user-select: none;
 }
 
+button.grey { background-color: #999; }
+button.red { background-color: #ff001f; }
+button.green { background-color: #3ecf72; }
+button.transparent { background-color: rgba(0, 0, 0, 0); }
+button.transparent path { stroke: #000; }
+
+button svg {
+  height: 100%;
+  width: auto;
+}
+
+button path { stroke: #fff; }
+button:active path { stroke: #ddd; }
+
 button:hover { opacity: 1; }
 button:active { color: #ddd; }
 
@@ -76,10 +90,50 @@ canvas {
 
 video {
   left: 50%;
-  min-height: 100%;
-  min-width: 100%;
+  height: auto;
+  width: 100vw;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+}
+
+#settings {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #222;
+  z-index: 20;
+  padding: 1.2rem;
+}
+
+#settings-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#settings-nav h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#device-selection {
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.select-input {
+  margin: 0.5rem;
+  font-weight: 600;
+}
+
+.select-input select {
+  display: block;
+  margin-top: 0.25rem;
+  padding: 0.4rem 0.55rem 0.3rem 0.5rem;
 }
