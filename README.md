@@ -13,7 +13,7 @@ You can read an old introductory post to `hypervision` at the following URL: [ht
 - [x] Video/audio input selection (currently chooses system defaults)
 - [ ] Audio-only broadcasting
 - [ ] RTMP ingestion (to allow streaming from OBS)
-- [ ] Easier viewing page customization
+- [x] Easier viewing page customization
 - [ ] Better archiving (for re-watching a broadcast afterwards)
 - [ ] Chat tools
 
@@ -33,6 +33,17 @@ npm start
 After installating and starting the application, press the green `[Start Broadcast]` button in the top right hand corner of the window.
 
 When the broadcast begins, a copyable `hyper://` URL should appear in the bottom right hand corner of the window. You can share this link with anyone who wants to tune into your broadcast. They will need to open this URL inside of a peer-to-peer `hyper://` enabled web browser, such as [Beaker Browser](https://beakerbrowser.com).
+
+## Custom templates
+`hypercast` allows you to specify a custom template in the settings to be used when broadcasting.
+
+The custom template must be a single HTML file containing all the necessary
+assets (CSS/JS), and must contain an element with the id of `video`. This
+element is where your stream will be injected.
+
+For an example of what a custom template can look like, check out
+[hypercast-custom-template](https://github.com/Briix/hypercast-custom-template)
+or the [default hypercast template](https://github.com/Briix/hypercast/blob/master/lib/viewer.html)
 
 ## License
 MIT

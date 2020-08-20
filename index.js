@@ -35,6 +35,11 @@ app.use(function (state, emitter) {
     emitter.emit('setStream')
   })
 
+  emitter.on('setViewerTemplate', function(viewerTemplate) {
+    state.settings.viewerTemplate = viewerTemplate
+    emitter.emit('render')
+  })
+
   emitter.on('broadcast:start', function (key) {
     state.broadcast.peerCount = 0
     state.broadcast.active = true

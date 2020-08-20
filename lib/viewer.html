@@ -8,65 +8,15 @@
       a { text-decoration: none; border-bottom: 2px solid #222; }
       a, a:hover, a:visited { color: #222; }
       a:active { color: pink; }
-      #container { align-items: center; display: flex; height: 100vh; width: 100vw; justify-content: center; }
+      #video { align-items: center; display: flex; height: 100vh; width: 100vw; justify-content: center; }
       #info { background: white; bottom: 0; font-size: 0.9rem; padding: 0.5rem 0.6rem 0.55rem 0.55rem; position: fixed; right: 0; }
       video { max-width: 80%; height: auto; }
     </style>
   </head>
 
   <body>
-    <div id="container">
+    <div id="video">
       <div id="info">streaming via <a href="https://github.com/louiscenter/hypercast">hypercast</a></div>
     </div>
-    <script type="text/javascript" src="mime.js"></script>
-    <script>
-      var el_player = document.createElement(/audio/.test(mime) ? 'audio' : 'video')
-      el_player.autoplay = true;
-      el_player.controls = true;
-      document.querySelector('#container').appendChild(el_player);
-      var archive = beaker.hyperdrive.drive(window.location.href)
-      var mediaSource = new MediaSource()
-
-      el_player.src = window.URL.createObjectURL(mediaSource)
-
-      var sourceBuffer
-      mediaSource.addEventListener('sourceopen', function () {
-        sourceBuffer = mediaSource.addSourceBuffer(mime)
-        sourceBuffer.mode = 'sequence'
-
-        read()
-      })
-
-      async function read () {
-        var files = await archive.readdir('/')
-        var block = 0
-        loop()
-
-        async function loop () {
-          var buffer
-
-          try {
-            buffer = await archive.readFile(`/${block}.buffer`, 'binary')
-          } catch (err) {
-            console.log(`error downloading block ${block}`, err)
-          }
-
-          if (buffer) {
-            console.log(`appending block ${block}`)
-            sourceBuffer.appendBuffer(buffer)
-          }
-
-          setTimeout(function () {
-            if (block === 0 && files.length > 6) {
-              block = files.length - 5
-            } else {
-              if (buffer) block++
-            }
-
-            loop()
-          }, 2000)
-        }
-      }
-    </script>
   </body>
 </html>

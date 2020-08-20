@@ -5,7 +5,8 @@ body {
   font-size: 16px;
 }
 
-button {
+button,
+.btn {
   border: 0;
   border-radius: 2px;
   /* box-shadow: 3px 2px 0px #eaa4b0; */
@@ -18,12 +19,6 @@ button {
   user-select: none;
 }
 
-button.grey { background-color: #999; }
-button.red { background-color: #ff001f; }
-button.green { background-color: #3ecf72; }
-button.transparent { background-color: rgba(0, 0, 0, 0); }
-button.transparent path { stroke: #000; }
-
 button svg {
   height: 100%;
   width: auto;
@@ -32,8 +27,8 @@ button svg {
 button path { stroke: #fff; }
 button:active path { stroke: #ddd; }
 
-button:hover { opacity: 1; }
-button:active { color: #ddd; }
+button:hover, .btn:hover { opacity: 1; }
+button:active, .btn:active { color: #ddd; }
 
 input[type=text] {
   background: #fff;
@@ -137,3 +132,60 @@ video {
   margin-top: 0.25rem;
   padding: 0.4rem 0.55rem 0.3rem 0.5rem;
 }
+
+#file-input {
+  margin: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.file-input-btn {
+  display: inline-block;
+  font-weight: 400;
+  margin-right: 0.5rem;
+  box-sizing: border-box;
+}
+
+.viewer-template-inner {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.viewer-template-link {
+  font-size: 0.875rem;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #3f82cf;
+}
+
+.viewer-template-link:hover { text-decoration: underline; }
+
+input#viewer-template {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+input#viewer-template:focus + label {
+  outline: thin dotted;
+}
+
+input#viewer-template:focus-within + label {
+  outline: thin dotted;
+}
+
+.mr-1 { margin-right: 0.5rem; }
+
+.bg-grey { background-color: #999; }
+.bg-red { background-color: #ff001f; }
+.bg-green { background-color: #3ecf72; }
+.bg-transparent { background-color: rgba(0, 0, 0, 0); }
+.bg-transparent path { stroke: #000; }

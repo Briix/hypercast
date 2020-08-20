@@ -35,12 +35,12 @@ function home (state, emit) {
           })}
           <div id="actions">
             ${button({
-              color: !state.broadcast.active ? 'green' : 'grey',
+              classes: !state.broadcast.active ? 'bg-green' : 'bg-grey',
               onclick: !state.broadcast.active ? startBroadcast : stopBroadcast,
               text: `${!state.broadcast.active ? 'Start' : 'Stop'} Broadcast`
             })}
             ${button({
-              color: 'grey',
+              classes: 'bg-grey',
               onclick: settingsToggle,
               text: settingsIcon
             })}
@@ -84,7 +84,8 @@ function home (state, emit) {
       emit('broadcast:peer', peerCount)
     },
     !state.settings.videoDevice,
-    typeof state.settings.videoDevice === 'string' && state.settings.videoDevice.includes('screen')
+    typeof state.settings.videoDevice === 'string' && state.settings.videoDevice.includes('screen'),
+    state.settings.viewerTemplate
     )
   }
 
