@@ -83,8 +83,8 @@ function home (state, emit) {
     }, function(peerCount) {
       emit('broadcast:peer', peerCount)
     },
-    !state.settings.videoDevice,
-    typeof state.settings.videoDevice === 'string' && state.settings.videoDevice.includes('screen'),
+    state.settings.videoDevice,
+    state.settings.audioDevice,
     state.settings.viewerTemplate
     )
   }
